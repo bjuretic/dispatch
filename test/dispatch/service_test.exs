@@ -22,7 +22,7 @@ defmodule Dispatch.ServiceTest do
     end
   end
 
-  setup do
+  setup_all do
     type = "ServiceTest"
     pubsub_server = Application.get_env(:dispatch, :pubsub)
                       |> Keyword.get(:name, Dispatch.PubSub)

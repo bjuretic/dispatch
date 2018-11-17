@@ -36,12 +36,9 @@ defmodule Dispatch.Registry do
       {:ok, #PID<0.168.0>}
   """
   def start_link(opts \\ []) do
-    pubsub_server = Application.get_env(:dispatch, :pubsub)
-                      |> Keyword.get(:name, Dispatch.PubSub)
-    full_opts = Keyword.merge([name: __MODULE__,
-                          pubsub_server: pubsub_server],
-                         opts)
-    GenServer.start_link(Phoenix.Tracker, [__MODULE__, full_opts, full_opts], opts)
+    pubsub_server = Application.get_env(:dispatch, :pubsub) |> Keyword.get(:name, Dispatch.PubSub)
+    full_opts = Keyword.merge([name: __MODULE__, pubsub_server: pubsub_server], opts)
+    Phoenix.Tracker.start_link(__MODULE__, full_opts, full_opts)
   end
 
   @doc """

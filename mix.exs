@@ -28,7 +28,7 @@ defmodule Dispatch.Mixfile do
   defp deps do
     [
       {:libring, "~> 1.3.0"},
-      {:phoenix_pubsub, "~> 1.0.0"},
+      {:phoenix_pubsub, "~> 1.1"},
       {:ex_doc, "~> 0.19.0", only: :dev}
     ]
   end
